@@ -862,6 +862,12 @@
     <string name="navigation_bar_reset_message">Delete current settings and restore to default?</string>
     <string name="navigation_bar_save_message">Navigation bar settings saved</string>
     <string name="navigation_bar_reset_toast">Navigation bar reset to default</string>
+    <string name="navigation_bar_edit_title">Button customization</string>
+    <string name="navigation_bar_edit_summary">Edit button layout</string>
+    <string name="navigation_bar_glow_title">Glow animation duration</string>
+    <string name="navigation_bar_glow_off">Off</string>
+    <string name="navigation_bar_glow_fast">Fast</string>
+    <string name="navigation_bar_glow_default">Default</string>
 
     <!-- Power Widget #CM -->
     <string name="power_widget_title">Power widget</string>

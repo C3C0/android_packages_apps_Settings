@@ -26,6 +26,8 @@ import android.os.ServiceManager;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
+import android.provider.Settings;
+import android.provider.Settings.SettingNotFoundException;
 import android.util.Log;
 import android.view.IWindowManager;
 
@@ -41,11 +43,15 @@ public class SystemSettings extends SettingsPreferenceFragment implements
     private static final String KEY_NOTIFICATION_DRAWER = "notification_drawer";
     private static final String KEY_NOTIFICATION_DRAWER_TABLET = "notification_drawer_tablet";
     private static final String KEY_NAVIGATION_BAR = "navigation_bar";
+    private static final String KEY_NAV_BAR = "navigation_bar";
+    private static final String KEY_NAV_BAR_EDIT = "nav_bar_edit";
+    private static final String KEY_NAV_BAR_GLOW = "nav_bar_glow";
 
     private ListPreference mFontSizePref;
+    private ListPreference mGlowTimes;
 
     private final Configuration mCurConfig = new Configuration();
-    
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +60,8 @@ public class SystemSettings extends SettingsPreferenceFragment implements
 
         mFontSizePref = (ListPreference) findPreference(KEY_FONT_SIZE);
         mFontSizePref.setOnPreferenceChangeListener(this);
+        mGlowTimes = (ListPreference) findPreference(KEY_NAV_BAR_GLOW);
+        mGlowTimes.setOnPreferenceChangeListener(this);
         if (Utils.isScreenLarge()) {
             getPreferenceScreen().removePreference(findPreference(KEY_NOTIFICATION_DRAWER));
         } else {
@@ -62,10 +70,11 @@ public class SystemSettings extends SettingsPreferenceFragment implements
         IWindowManager windowManager = IWindowManager.Stub.asInterface(ServiceManager.getService(Context.WINDOW_SERVICE));
         try {
             if (!windowManager.hasNavigationBar()) {
-                getPreferenceScreen().removePreference(findPreference(KEY_NAVIGATION_BAR));
+                getPreferenceScreen().removePreference(findPreference(KEY_NAV_BAR));
             }
         } catch (RemoteException e) {
         }
+        updateGlowTimesSummary();
     }
 
     int floatToIndex(float val) {
@@ -80,7 +89,7 @@ public class SystemSettings extends SettingsPreferenceFragment implements
         }
         return indices.length-1;
     }
-    
+
     public void readFontSizePreference(ListPreference pref) {
         try {
             mCurConfig.updateFrom(ActivityManagerNative.getDefault().getConfiguration());
@@ -98,7 +107,29 @@ public class SystemSettings extends SettingsPreferenceFragment implements
         pref.setSummary(String.format(res.getString(R.string.summary_font_size),
                 fontSizeNames[index]));
     }
-    
+
+    private void updateGlowTimesSummary() {
+        int resId;
+        String combinedTime = Settings.System.getString(getContentResolver(),
+                Settings.System.NAV_GLOW_DURATION_ON) + "|" +
+                Settings.System.getString(getContentResolver(),
+                Settings.System.NAV_GLOW_DURATION_OFF);
+
+        String[] glowArray = getResources().getStringArray(R.array.values_nav_bar_glow);
+
+        if (glowArray[0].equals(combinedTime)) {
+            resId = R.string.navigation_bar_glow_off;
+            mGlowTimes.setValueIndex(0);
+        } else if (glowArray[1].equals(combinedTime)) {
+            resId = R.string.navigation_bar_glow_fast;
+            mGlowTimes.setValueIndex(1);
+        } else {
+            resId = R.string.navigation_bar_glow_default;
+            mGlowTimes.setValueIndex(2);
+        }
+        mGlowTimes.setSummary(getResources().getString(resId));
+    }
+
     @Override
     public void onResume() {
         super.onResume();
@@ -130,11 +161,26 @@ public class SystemSettings extends SettingsPreferenceFragment implements
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
-        final String key = preference.getKey();
-        if (KEY_FONT_SIZE.equals(key)) {
-            writeFontSizePreference(objValue);
-        }
+        if (preference == mFontSizePref) {
+            final String key = preference.getKey();
+            if (KEY_FONT_SIZE.equals(key)) {
+                writeFontSizePreference(objValue);
+            }
+            return true;
+        } else if (preference == mGlowTimes) {
+            String value = (String) objValue;
+            String[] breakIndex = value.split("\\|");
 
-        return true;
+            int onTime = Integer.valueOf(breakIndex[0]);
+            int offTime = Integer.valueOf(breakIndex[1]);
+
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.NAV_GLOW_DURATION_ON, onTime);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.NAV_GLOW_DURATION_OFF, offTime);
+            updateGlowTimesSummary();
+            return true;
+        }
+        return false;
     }
 }
