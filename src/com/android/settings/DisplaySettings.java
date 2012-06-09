@@ -45,10 +45,12 @@ public class DisplaySettings extends PreferenceActivity implements
     private static final String KEY_SCREEN_TIMEOUT = "screen_timeout";
     private static final String KEY_ANIMATIONS = "animations";
     private static final String KEY_ACCELEROMETER = "accelerometer";
+    private static final String KEY_HIDE_STATUS_BAR = "hide_status_bar";
 
     private ListPreference mAnimations;
     private CheckBoxPreference mAccelerometer;
     private float[] mAnimationScales;
+    private CheckBoxPreference mHideStatusBar;
 
     private IWindowManager mWindowManager;
 
@@ -71,6 +73,13 @@ public class DisplaySettings extends PreferenceActivity implements
                 resolver, SCREEN_OFF_TIMEOUT, FALLBACK_SCREEN_TIMEOUT_VALUE)));
         screenTimeoutPreference.setOnPreferenceChangeListener(this);
         disableUnusableTimeouts(screenTimeoutPreference);
+
+        mHideStatusBar = (CheckBoxPreference) findPreference(KEY_HIDE_STATUS_BAR);
+        if(mHideStatusBar != null) {
+            mHideStatusBar.setChecked(Settings.System.getInt(resolver,
+                    Settings.System.HIDE_STATUS_BAR, 0) == 1);
+            mHideStatusBar.setOnPreferenceChangeListener(this);
+        }
     }
 
     private void disableUnusableTimeouts(ListPreference screenTimeoutPreference) {
@@ -144,6 +153,10 @@ public class DisplaySettings extends PreferenceActivity implements
         mAccelerometer.setChecked(Settings.System.getInt(
                 getContentResolver(),
                 Settings.System.ACCELEROMETER_ROTATION, 0) != 0);
+
+        mHideStatusBar.setChecked(Settings.System.getInt(
+                getContentResolver(),
+                Settings.System.HIDE_STATUS_BAR, 0) == 1);
     }
 
     private void updateAnimationsSummary(Object value) {
@@ -165,7 +178,12 @@ public class DisplaySettings extends PreferenceActivity implements
             Settings.System.putInt(getContentResolver(),
                     Settings.System.ACCELEROMETER_ROTATION,
                     mAccelerometer.isChecked() ? 1 : 0);
+        } else if (preference == mHideStatusBar) {
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.HIDE_STATUS_BAR,
+                    mHideStatusBar.isChecked() ? 1 : 0);
         }
+
         return true;
     }
 
