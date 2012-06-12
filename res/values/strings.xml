@@ -4527,4 +4527,9 @@ found in the list of installed apps.</string>
     <string name="increasing_ring_interval_3seconds">3 seconds</string>
     <string name="increasing_ring_interval_5seconds">5 seconds</string>
     <string name="increasing_ring_interval_10seconds">10 seconds</string>
+
+    <!-- Status bar at bottom -->
+    <string name="status_bar_bottom_title">Display at bottom</string>
+    <string name="status_bar_bottom_summary">Move status bar to the bottom of the screen</string>
+
 </resources>
