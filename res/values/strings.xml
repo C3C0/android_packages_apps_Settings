@@ -658,6 +658,11 @@
     <string name="link_volume_ringtones">Link ringtone + notification volume</string>
     <string name="link_volume_ringtones_toast">Make sure to change your volume to re-set your notification volume to match your ringtone volume.</string>
     <string name="link_volume_mutes">Link ringtone + notification mutes</string>
+    <string name="sound_camera_shutter_disable_title">Mute camera shutter</string>
+    <string name="sound_camera_shutter_disable_summary_on">Shutter sound will not be played</string>
+    <string name="sound_camera_shutter_disable_summary_off">Shutter sound will be played</string>
+    <string name="sound_camera_shutter_disable_warning_title">WARNING: This may be illegal!</string>
+    <string name="sound_camera_shutter_disable_warning">Disabling camera shutter sound is illegal in some Countries and Jurisdictions. Are you sure you want to disable it?</string>
 
     <!-- Quiet hours #CM -->
     <string name="quiet_hours_title">Quiet hours</string>
