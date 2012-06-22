@@ -46,6 +46,7 @@ public class SystemSettings extends SettingsPreferenceFragment implements
     private static final String KEY_NAV_BAR = "navigation_bar";
     private static final String KEY_NAV_BAR_EDIT = "nav_bar_edit";
     private static final String KEY_NAV_BAR_GLOW = "nav_bar_glow";
+    private static final String KEY_HARDWARE_KEYS = "hardware_keys";
 
     private ListPreference mFontSizePref;
     private ListPreference mGlowTimes;
@@ -69,8 +70,10 @@ public class SystemSettings extends SettingsPreferenceFragment implements
         }
         IWindowManager windowManager = IWindowManager.Stub.asInterface(ServiceManager.getService(Context.WINDOW_SERVICE));
         try {
-            if (!windowManager.hasNavigationBar()) {
-                getPreferenceScreen().removePreference(findPreference(KEY_NAV_BAR));
+            if (windowManager.hasNavigationBar()) {
+                getPreferenceScreen().removePreference(findPreference(KEY_HARDWARE_KEYS));
+            } else {
+                getPreferenceScreen().removePreference(findPreference(KEY_NAVIGATION_BAR));
             }
         } catch (RemoteException e) {
         }
