@@ -1732,6 +1732,8 @@
     <string name="lockpattern_settings_enable_summary">Must draw pattern to unlock screen</string>
     <!-- Security & location settings screen, setting check box title. This setting controls whether a visible green line is drawn as the user moves his finger around while drawing the unlock pattern.  If checked, this line is drawn.  If unchecked, there is nothing drawn so the user does not reveal his pattern while he unlocks the phone.-->
     <string name="lockpattern_settings_enable_visible_pattern_title">Use visible pattern</string>
+    <!-- Security & location settings screen, setting check box title. This setting controls whether a visible red line will be drawn after the user has drawn the unlock pattern incorrectly.  If checked, this line is drawn.  If unchecked, there is nothing drawn so the user does not reveal his pattern while he unlocks the phone.-->
+    <string name="lockpattern_settings_enable_error_path_title">Show pattern error</string>
     <!-- Security & location settings screen, setting check box title. This setting controls whether tactile feedback will be produced when the user draws the pattern.-->
     <string name="lockpattern_settings_enable_tactile_feedback_title">Use tactile feedback</string>
     <!-- Security & location settings screen, setting option name when user has never set an unlock pattern -->
@@ -1783,7 +1785,7 @@
     <!-- Applications settings screen, setting check box title. If checked, the system allows installation of applications that are downloaded from random places, such as web sites.  -->
     <string name="install_applications">Unknown sources</string>
     <!-- Applications settings screen, setting check box summary.  This is the summary for "Unknown sources" checkbox  -->
-    <string name="install_unknown_applications">Allow installation of non-Market applications</string>
+    <string name="install_unknown_applications">Allow installation of non-Play Store applications</string>
     <!-- Applications settings screen, message text of alert that appears if user selects the "Unknown sources" check box -->
     <string name="install_all_warning">Your phone and personal data are more vulnerable to attack by applications
  from unknown sources. You agree that you are solely responsible for any
@@ -2311,14 +2313,14 @@ found in the list of installed applications.</string>
          selects to disable accessibility. This avoids accidental disabling. -->
     <string name="accessibility_service_disable_warning">Disable accessibility?</string>
     <!-- Title for the prompt that lets users know that they have no accessibility related apps
-         installed and that they can install TalkBack from Market. -->
+         installed and that they can install TalkBack from Play Store. -->
     <string name="accessibility_service_no_apps_title">No accessibility related applications found
         </string>
     <!-- Message for the prompt that lets users know that they have no accessibility related apps
-         installed and that they can install TalkBack from Market. -->
+         installed and that they can install TalkBack from Play Store. -->
     <string name="accessibility_service_no_apps_message">You do not have any accessibility related
-        applications installed.\n\nYou can download a screen reader for your device from Android
-        Market.\n\nClick "OK" to install the screen reader.</string>
+        applications installed.\n\nYou can download a screen reader for your device from Google
+        Play.\n\nClick "OK" to install the screen reader.</string>
 
     <!-- Accessibility settings: Power button category -->
     <string name="accessibility_power_button_category">Power button</string>
@@ -3137,6 +3139,21 @@ found in the list of installed applications.</string>
 
     <!-- Unlock finger settings screen, change unlock finger screen countdown hint on bottom of screen when the screen is locked out -->
     <string name="lockfinger_lockout_countdown_footer">Try again in %d seconds.</string>
+
+    <string name="increasing_ring_title">Increasing ring volume</string>
+    <!-- Sound settings screen, the caption of the checkbox for making incoming calls increas in volume -->
+    <string name="checkbox_increasing_ring">Enable volume increase</string>
+    <!-- Sound settings screen, the title of the volume bar to adjust the minimum increasing ring volume -->
+    <string name="increasing_ring_min_volume_title">Ringing start volume</string>
+    <string name="increasing_ring_volume_notice">Notice:\nAs the start volume is set higher than the ringer volume, the ring tone will be played using the ringer volume.</string>
+    <string name="increasing_ring_interval_title">Increase interval</string>
+    <string name="increasing_ring_interval_eachring">On each ring</string>
+    <string name="increasing_ring_interval_half_second">0.5 seconds</string>
+    <string name="increasing_ring_interval_1second">1 second</string>
+    <string name="increasing_ring_interval_2seconds">2 seconds</string>
+    <string name="increasing_ring_interval_3seconds">3 seconds</string>
+    <string name="increasing_ring_interval_5seconds">5 seconds</string>
+    <string name="increasing_ring_interval_10seconds">10 seconds</string>
 
     <!-- Sound & display settings screen, Hide status bar -->
     <string name="hide_status_bar_title">Hide statusbar</string>

@@ -708,6 +708,7 @@
     <string name="lockpattern_settings_enable_title" msgid="6920616873671115281">"パターン入力が必要"</string>
     <string name="lockpattern_settings_enable_summary" msgid="1165707416664252167">"画面ロックを解除するにはパターンの入力が必要"</string>
     <string name="lockpattern_settings_enable_visible_pattern_title" msgid="104851667540971729">"指の軌跡を線で表示"</string>
+    <string name="lockpattern_settings_enable_error_path_title">エラー軌跡を表示</string>
     <string name="lockpattern_settings_enable_tactile_feedback_title" msgid="972174133075372341">"入力時バイブレーション"</string>
     <string name="lockpattern_settings_choose_lock_pattern" msgid="1652352830005653447">"ロック解除パターン設定"</string>
     <string name="lockpattern_settings_change_lock_pattern" msgid="1123908306116495545">"パターンの変更"</string>
@@ -916,7 +917,7 @@
     <string name="accessibility_service_security_warning" msgid="4066258132331302670">"このユーザー補助サービスを選択すると、入力する全テキストの収集をアプリケーション（<xliff:g id="ACCESSIBILITY_SERVICE_NAME">%1$s</xliff:g>）に許可することになります。これにはクレジットカード番号などの個人情報（パスワードを除く）も含まれます。また、ユーザーインターフェースでのやり取りも記録されます。このユーザー補助サービスを使用しますか？"</string>
     <string name="accessibility_service_disable_warning" msgid="8930591383312775132">"ユーザー補助サービスを無効にしますか？"</string>
     <string name="accessibility_service_no_apps_title" msgid="898893674114288531">"ユーザー補助アプリケーションが見つかりません"</string>
-    <string name="accessibility_service_no_apps_message" msgid="2450056749545404807">"ユーザー補助アプリケーションをインストールしていません。"\n\n"携帯電話用のスクリーンリーダーをAndroidマーケットからダウンロードできます。"\n\n"スクリーンリーダーをインストールするには[OK]をタップします。"</string>
+    <string name="accessibility_service_no_apps_message" msgid="2450056749545404807">"ユーザー補助アプリケーションをインストールしていません。"\n\n"携帯電話用のスクリーンリーダーをGoogleプレイからダウンロードできます。"\n\n"スクリーンリーダーをインストールするには[OK]をタップします。"</string>
     <string name="accessibility_power_button_category" msgid="8545885236482339928">"電源ボタン"</string>
     <string name="accessibility_power_button_ends_call" msgid="7698764194501089533">"電源ボタンで通話を終了する"</string>
     <string name="accessibility_power_button_ends_call_summary" msgid="8878097632186291462">"画面をOFFにするのではなく電源ボタンを押して通話を終了する"</string>
@@ -1448,4 +1449,19 @@
 
     <!-- Unlock finger settings screen, change unlock finger screen countdown hint on bottom of screen when the screen is locked out -->
     <string name="lockfinger_lockout_countdown_footer">%d 秒後に再試行してください。</string>
+
+    <string name="increasing_ring_title">ステップ着信音量</string>
+    <!-- Sound settings screen, the caption of the checkbox for making incoming calls increas in volume -->
+    <string name="checkbox_increasing_ring">ステップ着信音量を有効にする</string>
+    <!-- Sound settings screen, the title of the volume bar to adjust the minimum increasing ring volume -->
+    <string name="increasing_ring_min_volume_title">鳴り始めの音量</string>
+    <string name="increasing_ring_volume_notice">注意:\n設定した音量が着信音量より大きい場合、着信音量の設定に従います。</string>
+    <string name="increasing_ring_interval_title">音量が上がる間隔</string>
+    <string name="increasing_ring_interval_eachring">着信音毎</string>
+    <string name="increasing_ring_interval_half_second">0.5 秒</string>
+    <string name="increasing_ring_interval_1second">1 秒</string>
+    <string name="increasing_ring_interval_2seconds">2 秒</string>
+    <string name="increasing_ring_interval_3seconds">3 秒</string>
+    <string name="increasing_ring_interval_5seconds">5 秒</string>
+    <string name="increasing_ring_interval_10seconds">10 秒</string>
 </resources>
