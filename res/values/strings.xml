@@ -4504,6 +4504,10 @@ found in the list of installed apps.</string>
     <!-- Navbar -->
     <string name="konsta_navbar">Show navigation bar</string>
     <string name="konsta_navbar_reboot">Requires reboot</string>
+    <string name="konsta_navbar_dialog_title">Reboot required</string>
+    <string name="konsta_navbar_dialog_msg">Please reboot to enable/disable the navigation bar</string>
+    <string name="konsta_navbar_dialog_negative">Reboot later</string>
+    <string name="konsta_navbar_dialog_positive">Hot reboot now</string>
 
     <!-- Category for notification light options -->
     <string name="notification_light_title">Notification light options</string>

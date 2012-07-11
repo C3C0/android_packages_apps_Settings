@@ -17,12 +17,16 @@
 package com.android.settings.cyanogenmod;
 
 import android.app.ActivityManagerNative;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.os.ServiceManager;
+import android.os.IBinder;
+import android.os.IPowerManager;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -170,6 +174,27 @@ public class SystemSettings extends SettingsPreferenceFragment implements
         if (preference == mKonstaNavbar) {
             Settings.System.putInt(getContentResolver(), Settings.System.KONSTA_NAVBAR,
                     mKonstaNavbar.isChecked() ? 1 : 0);
+
+            new AlertDialog.Builder(getActivity())
+                    .setTitle(getResources().getString(R.string.konsta_navbar_dialog_title))
+                    .setMessage(getResources().getString(R.string.konsta_navbar_dialog_msg))
+                    .setNegativeButton(getResources().getString(R.string.konsta_navbar_dialog_negative), null)
+                    .setCancelable(false)
+                    .setPositiveButton(getResources().getString(R.string.konsta_navbar_dialog_positive), new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            try {
+                                IBinder b = ServiceManager.getService(Context.POWER_SERVICE);
+                                IPowerManager pm = IPowerManager.Stub.asInterface(b);
+                                pm.crash("Navbar changed");
+                            } catch (android.os.RemoteException e) {
+                                //
+                            }
+                        }
+                    })
+                    .create()
+                    .show();
+
             return true;
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
