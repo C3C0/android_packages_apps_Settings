@@ -54,6 +54,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_ELECTRON_BEAM_CATEGORY_ANIMATION = "category_animation_options";
     private static final String KEY_WAKEUP_CATEGORY = "category_wakeup_options";
     private static final String KEY_VOLUME_WAKE = "pref_volume_wake";
+    private static final String KEY_HIDE_STATUS_BAR = "hide_status_bar";
 
     private static final String ROTATION_ANGLE_0 = "0";
     private static final String ROTATION_ANGLE_90 = "90";
@@ -67,6 +68,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private CheckBoxPreference mElectronBeamAnimationOff;
     private PreferenceScreen mNotificationPulse;
     private PreferenceScreen mBatteryPulse;
+    private CheckBoxPreference mHideStatusBar;
 
     private final Configuration mCurConfig = new Configuration();
 
@@ -122,6 +124,13 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             } else {
                 updateBatteryPulseDescription();
             }
+        }
+
+        mHideStatusBar = (CheckBoxPreference) findPreference(KEY_HIDE_STATUS_BAR);
+        if(mHideStatusBar != null) {
+            mHideStatusBar.setChecked(Settings.System.getInt(resolver,
+                    Settings.System.HIDE_STATUS_BAR, 0) == 1);
+            mHideStatusBar.setOnPreferenceChangeListener(this);
         }
 
         mElectronBeamAnimationOn = (CheckBoxPreference) findPreference(KEY_ELECTRON_BEAM_ANIMATION_ON);
@@ -312,6 +321,11 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         } else if (preference == mVolumeWake) {
             Settings.System.putInt(getContentResolver(), Settings.System.VOLUME_WAKE_SCREEN,
                     mVolumeWake.isChecked() ? 1 : 0);
+            return true;
+        } else if (preference == mHideStatusBar) {
+            boolean value = mHideStatusBar.isChecked();
+            Settings.System.putInt(getContentResolver(), Settings.System.HIDE_STATUS_BAR,
+                    value ? 1 : 0);
             return true;
         }
 
