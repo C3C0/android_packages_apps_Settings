@@ -23,6 +23,7 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.os.ServiceManager;
+import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
@@ -47,9 +48,11 @@ public class SystemSettings extends SettingsPreferenceFragment implements
     private static final String KEY_NAV_BAR_EDIT = "nav_bar_edit";
     private static final String KEY_NAV_BAR_GLOW = "nav_bar_glow";
     private static final String KEY_HARDWARE_KEYS = "hardware_keys";
+    private static final String KONSTA_NAVBAR = "konsta_navbar";
 
     private ListPreference mFontSizePref;
     private ListPreference mGlowTimes;
+    private CheckBoxPreference mKonstaNavbar;
 
     private final Configuration mCurConfig = new Configuration();
 
@@ -78,6 +81,10 @@ public class SystemSettings extends SettingsPreferenceFragment implements
         } catch (RemoteException e) {
         }
         updateGlowTimesSummary();
+
+        mKonstaNavbar = (CheckBoxPreference) findPreference(KONSTA_NAVBAR);
+        mKonstaNavbar.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.KONSTA_NAVBAR, 0) == 1);
     }
 
     int floatToIndex(float val) {
@@ -160,6 +167,11 @@ public class SystemSettings extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+        if (preference == mKonstaNavbar) {
+            Settings.System.putInt(getContentResolver(), Settings.System.KONSTA_NAVBAR,
+                    mKonstaNavbar.isChecked() ? 1 : 0);
+            return true;
+        }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 

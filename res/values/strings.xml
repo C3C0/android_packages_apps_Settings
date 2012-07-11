@@ -4501,6 +4501,13 @@ found in the list of installed apps.</string>
     "system_update_settings_list_item_title" in this project. [CHAR LIMIT=25] -->
     <string name="additional_system_update_settings_list_item_title">Additional system updates</string>
 
+    <!-- Navbar -->
+    <string name="konsta_navbar">Show navigation bar</string>
+    <string name="konsta_navbar_reboot">Requires reboot</string>
+
+    <!-- Category for notification light options -->
+    <string name="notification_light_title">Notification light options</string>
+
     <!-- Electron Beam -->
     <string name="display_category_animation_options_title">Animation</string>
     <string name="display_electron_beam_animation_on_title">Screen-on animation</string>

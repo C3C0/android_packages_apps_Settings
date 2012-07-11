@@ -42,6 +42,10 @@
             android:entries="@array/screen_timeout_entries"
             android:entryValues="@array/screen_timeout_values" />
 
+        <PreferenceCategory
+            android:key="category_pulse_notification_options"
+            android:title="@string/notification_light_title"/>
+
         <PreferenceScreen
             android:key="notification_pulse"
             android:title="@string/notification_pulse_title"
