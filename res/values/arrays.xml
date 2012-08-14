@@ -1266,6 +1266,22 @@
         <item>86400</item>
     </string-array>
 
+    <string-array name="hardware_keys_action_entries" translatable="false">
+        <item>@string/hardware_keys_action_nothing</item>
+        <item>@string/hardware_keys_action_menu</item>
+        <item>@string/hardware_keys_action_app_switch</item>
+        <item>@string/hardware_keys_action_search</item>
+        <item>@string/hardware_keys_action_voice_search</item>
+    </string-array>
+
+    <string-array name="hardware_keys_action_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
     <!-- **** CYANOGENMOD EDITS END **** -->
     <string-array name="increasing_ring_interval_entries" translatable="false">
         <item>@string/increasing_ring_interval_eachring</item>
@@ -1286,5 +1302,19 @@
         <item>5000</item>
         <item>10000</item>
     </integer-array>
+
+    <!-- Values for the navigation bar glow animation -->
+    <string-array name="entries_nav_bar_glow">
+        <item>@string/navigation_bar_glow_off</item>
+        <item>@string/navigation_bar_glow_fast</item>
+        <item>@string/navigation_bar_glow_default</item>
+    </string-array>
+
+    <string-array name="values_nav_bar_glow" translatable="false">
+        <item>0|0</item>
+        <item>25|250</item>
+        <item>50|500</item>
+    </string-array>
+
 <!-- **** CYANOGENMOD EDITS END **** -->
 </resources>
