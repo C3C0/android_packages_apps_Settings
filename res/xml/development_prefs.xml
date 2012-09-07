@@ -16,6 +16,14 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
         android:title="@string/development_settings_title">
+
+    <PreferenceScreen
+            android:title="Dev Tools">
+            <intent
+                android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.development"
+                android:targetClass="com.android.development.Development" />
+    </PreferenceScreen>
         
     <CheckBoxPreference 
         android:key="enable_adb" 
