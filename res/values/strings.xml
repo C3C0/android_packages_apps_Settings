@@ -636,6 +636,10 @@
     <string name="lock_sounds_enable_title">Screen lock sound</string>
     <!-- Sound settings screen, setting check box label -->
     <string name="haptic_feedback_enable_title">Vibrate on touch</string>
+    <!-- Sound settings screen, setting check box label -->
+    <string name="volume_adjust_sounds_enable_title">Volume adjust sound</string>
+    <!-- Sound settings screen, setting check box summary -->
+    <string name="volume_adjust_sounds_enable_summary">Play sound when adjusting volume with hard keys</string>
     <!-- Setting for volume rocker music controls -->
     <string name="volbtn_music_controls_title">Volume rocker music controls</string>
     <string name="volbtn_music_controls_summary">When screen off, long-pressing the volume rockers will seek music tracks</string>
@@ -654,6 +658,11 @@
     <string name="link_volume_ringtones">Link ringtone + notification volume</string>
     <string name="link_volume_ringtones_toast">Make sure to change your volume to re-set your notification volume to match your ringtone volume.</string>
     <string name="link_volume_mutes">Link ringtone + notification mutes</string>
+    <string name="sound_camera_shutter_disable_title">Mute camera shutter</string>
+    <string name="sound_camera_shutter_disable_summary_on">Shutter sound will not be played</string>
+    <string name="sound_camera_shutter_disable_summary_off">Shutter sound will be played</string>
+    <string name="sound_camera_shutter_disable_warning_title">WARNING: This may be illegal!</string>
+    <string name="sound_camera_shutter_disable_warning">Disabling camera shutter sound is illegal in some Countries and Jurisdictions. Are you sure you want to disable it?</string>
 
     <!-- Quiet hours #CM -->
     <string name="quiet_hours_title">Quiet hours</string>
@@ -858,6 +867,12 @@
     <string name="navigation_bar_reset_message">Delete current settings and restore to default?</string>
     <string name="navigation_bar_save_message">Navigation bar settings saved</string>
     <string name="navigation_bar_reset_toast">Navigation bar reset to default</string>
+    <string name="navigation_bar_edit_title">Button customization</string>
+    <string name="navigation_bar_edit_summary">Edit button layout</string>
+    <string name="navigation_bar_glow_title">Glow animation duration</string>
+    <string name="navigation_bar_glow_off">Off</string>
+    <string name="navigation_bar_glow_fast">Fast</string>
+    <string name="navigation_bar_glow_default">Default</string>
 
     <!-- Power Widget #CM -->
     <string name="power_widget_title">Power widget</string>
@@ -907,6 +922,23 @@
     <string name="cm_sound_mode_soundVibrate">Sound + Vibrate</string>
     <string name="pref_flash_mode_title">Flash mode</string>
     <string name="expanded_haptic_feedback_title">Haptic feedback</string>
+
+    <!-- Hardware keys #CM -->
+    <string name="hardware_keys_title">Hardware keys</string>
+    <string name="hardware_keys_bindings_title">Key bindings</string>
+    <string name="hardware_keys_home_long_press_title">Home long press action</string>
+    <string name="hardware_keys_menu_press_title">Menu key action</string>
+    <string name="hardware_keys_menu_long_press_title">Menu long press action</string>
+    <string name="hardware_keys_search_press_title">Search key action</string>
+    <string name="hardware_keys_search_long_press_title">Search long press action</string>
+    <string name="hardware_keys_show_overflow_title">Show action overflow</string>
+    <string name="hardware_keys_show_overflow_summary">Displays the action overflow button within app interface</string>
+    <string name="hardware_keys_show_overflow_toast">Apps may not update until they are restarted</string>
+    <string name="hardware_keys_action_nothing">No action</string>
+    <string name="hardware_keys_action_menu">Open/close menu</string>
+    <string name="hardware_keys_action_app_switch">Recent apps switcher</string>
+    <string name="hardware_keys_action_search">Search</string>
+    <string name="hardware_keys_action_voice_search">Voice search</string>
 
     <!-- Status bar #CM -->
     <string name="combined_status_bar_title">@string/status_bar_title</string>
@@ -4461,6 +4493,17 @@ found in the list of installed apps.</string>
     "system_update_settings_list_item_title" in this project. [CHAR LIMIT=25] -->
     <string name="additional_system_update_settings_list_item_title">Additional system updates</string>
 
+    <!-- Navbar -->
+    <string name="konsta_navbar">Show navigation bar</string>
+    <string name="konsta_navbar_reboot">Requires reboot</string>
+    <string name="konsta_navbar_dialog_title">Reboot required</string>
+    <string name="konsta_navbar_dialog_msg">Please reboot to enable/disable the navigation bar</string>
+    <string name="konsta_navbar_dialog_negative">Reboot later</string>
+    <string name="konsta_navbar_dialog_positive">Hot reboot now</string>
+
+    <!-- Category for notification light options -->
+    <string name="notification_light_title">Notification light options</string>
+
     <!-- Electron Beam -->
     <string name="display_category_animation_options_title">Animation</string>
     <string name="display_electron_beam_animation_on_title">Screen-on animation</string>
@@ -4488,6 +4531,9 @@ found in the list of installed apps.</string>
     <!-- Hostname setting -->
     <string name="device_hostname">Device hostname</string>
 
+    <!-- Sound & display settings screen, Hide status bar -->
+    <string name="hide_status_bar_title">Hide statusbar</string>
+
     <!-- Status bar notification count -->
     <string name="status_bar_notif_count_title">Show notification count</string>
     <string name="status_bar_notif_count_summary">Display number of pending notifications on the status bar</string>
@@ -4506,4 +4552,9 @@ found in the list of installed apps.</string>
     <string name="increasing_ring_interval_3seconds">3 seconds</string>
     <string name="increasing_ring_interval_5seconds">5 seconds</string>
     <string name="increasing_ring_interval_10seconds">10 seconds</string>
+
+    <!-- Status bar at bottom -->
+    <string name="status_bar_bottom_title">Display at bottom</string>
+    <string name="status_bar_bottom_summary">Move status bar to the bottom of the screen</string>
+
 </resources>

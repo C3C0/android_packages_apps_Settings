@@ -42,6 +42,10 @@
             android:entries="@array/screen_timeout_entries"
             android:entryValues="@array/screen_timeout_values" />
 
+        <PreferenceCategory
+            android:key="category_pulse_notification_options"
+            android:title="@string/notification_light_title"/>
+
         <PreferenceScreen
             android:key="notification_pulse"
             android:title="@string/notification_pulse_title"
@@ -51,6 +55,11 @@
             android:key="battery_light"
             android:title="@string/battery_light_title"
             android:fragment="com.android.settings.notificationlight.BatteryLightSettings" />
+
+        <CheckBoxPreference
+            android:key="hide_status_bar"
+            android:title="@string/hide_status_bar_title"
+            android:persistent="true" />
 
         <PreferenceCategory
             android:key="category_animation_options"
