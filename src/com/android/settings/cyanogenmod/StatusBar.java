@@ -51,6 +51,8 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
 
     private static final String STATUS_BAR_CATEGORY_GENERAL = "status_bar_general";
 
+    private static final String STATUS_BAR_ICON_OPACITY = "status_bar_icon_opacity";
+
     private ListPreference mStatusBarAmPm;
 
     private ListPreference mStatusBarBattery;
@@ -66,6 +68,8 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private CheckBoxPreference mStatusBarNotifCount;
 
     private CheckBoxPreference mStatusBarBottom;
+
+    private ListPreference mStatusBarIconOpacity;
 
     private PreferenceCategory mPrefCategoryGeneral;
 
@@ -84,7 +88,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         mCombinedBarAutoHide = (CheckBoxPreference) prefSet.findPreference(COMBINED_BAR_AUTO_HIDE);
         mStatusBarCmSignal = (ListPreference) prefSet.findPreference(STATUS_BAR_SIGNAL);
         mStatusBarBottom = (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_BOTTOM);
-
+        mStatusBarIconOpacity = (ListPreference) prefSet.findPreference(STATUS_BAR_ICON_OPACITY);
 
         mStatusBarClock.setChecked((Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                 Settings.System.STATUS_BAR_CLOCK, 1) == 1));
@@ -124,6 +128,11 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         mStatusBarCmSignal.setValue(String.valueOf(signalStyle));
         mStatusBarCmSignal.setOnPreferenceChangeListener(this);
 
+        int iconOpacity = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
+                Settings.System.STATUS_BAR_NOTIF_ICON_OPACITY, 140);
+        mStatusBarIconOpacity.setValue(String.valueOf(iconOpacity));
+        mStatusBarIconOpacity.setOnPreferenceChangeListener(this);
+
         mCombinedBarAutoHide.setChecked((Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                 Settings.System.COMBINED_BAR_AUTO_HIDE, 0) == 1));
 
@@ -157,6 +166,11 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
             int signalStyle = Integer.valueOf((String) newValue);
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.STATUS_BAR_SIGNAL_TEXT, signalStyle);
+            return true;
+        } else if (preference == mStatusBarIconOpacity) {
+            int iconOpacity = Integer.valueOf((String) newValue);
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.STATUS_BAR_NOTIF_ICON_OPACITY, iconOpacity);
             return true;
         }
         return false;

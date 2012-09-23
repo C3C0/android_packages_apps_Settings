@@ -4538,6 +4538,10 @@ found in the list of installed apps.</string>
     <string name="status_bar_notif_count_title">Show notification count</string>
     <string name="status_bar_notif_count_summary">Display number of pending notifications on the status bar</string>
 
+    <!-- Status bar notification icon opacity -->
+    <string name="status_bar_icon_opacity_title">Notification icon opacity</string>
+    <string name="status_bar_icon_opacity_summary">Sets opacity of status bar notification icons</string>
+
     <string name="increasing_ring_title">Ascending ringtone</string>
     <!-- Sound settings screen, the caption of the checkbox for making incoming calls increase in volume -->
     <string name="checkbox_increasing_ring">Enable</string>
